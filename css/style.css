@@ -1,0 +1,581 @@
+
+/* ============================================================
+     RESET BASICO
+     Sacamos los margenes que el navegador pone por defecto.
+     ============================================================ */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* el padding NO agranda la caja */
+  }
+  
+  body {
+    font-family: "Parkinsans", sans-serif;
+    font-style: normal;
+    line-height: 1.5;
+    color: #222;
+    background: #FAFAFA;
+  }
+
+
+  /* Clase reutilizable: centra el contenido y le pone un ancho maximo */
+  .contenedor {
+    max-width: 1100px;
+    margin: 0 auto;          /* 0 arriba/abajo, auto a los costados = centrado */
+    padding: 0 20px;
+  }
+
+ 
+  /* ============================================================
+     HEADER Y NAVEGACION
+     display:flex + justify-content:space-between
+     => logo a la izquierda, menu a la derecha.
+     ============================================================ */
+
+  header {
+    background: #242222;
+    color:  #FFD34D;
+    padding: 15px 0;
+  }
+
+  .barra-nav {
+    display: flex;
+    justify-content: space-between;  /* separa logo y menu a los extremos */
+    align-items: center;             /* los alinea a la misma altura */
+    flex-wrap: wrap;                 /* en pantallas chicas bajan de linea */
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .logo span {
+    color: #FFD34D;          /* pintamos solo una parte del nombre */
+  }
+
+  /* El menu tambien es flex: los <li> quedan en fila */
+  .menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;        /* saca los puntitos de la lista */
+  }
+
+  .menu a {
+    color: #FFD34D;
+    text-decoration: none;
+  }
+
+  .menu a:hover {
+    color: white;
+  }
+
+
+  /* ============================================================
+     HERO (banner de bienvenida)
+     ============================================================ */
+
+  .hero {
+    background:#FFD34D;
+    color: black;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  h3 {
+  margin-bottom: 10px;
+}
+  .btn-nosotros {
+    display: inline-block;
+    margin-top: 20px;
+    background: black;
+    color: #FFD34D;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .btn-nosotros:hover {
+    background: rgb(172, 162, 162);
+  }
+
+
+  /* ============================================================
+     MAIN Y GRILLA DE PRODUCTOS
+     Este es el flexbox mas importante del ejercicio:
+     flex-wrap: wrap  => las cards bajan de linea solas.
+     ============================================================ */
+
+  main {
+    padding-bottom: 50px;
+  }
+
+  .titulo-seccion {
+    text-align: center;
+    margin: 50px 0 30px;
+    font-size: 28px;
+  }
+
+  .grilla-productos {
+    display: flex;
+    flex-wrap: wrap;          /* si no entran, pasan a la fila de abajo */
+    gap: 25px;                /* separacion entre cards */
+    justify-content: center;
+  }
+
+  /* flex: crecer | achicarse | ancho base
+     Con 320px de base entran 3 por fila en pantalla grande,
+     2 en tablet y 1 en celular. */
+
+  .card {
+    flex: 0 1 320px;
+    background: white;
+    border: 2px solid #E0E0E0;
+    border-radius: 10px;
+    overflow: hidden;         /* recorta la imagen a las esquinas redondeadas */
+    display: flex;
+    flex-direction: column;   /* imagen arriba, texto abajo (en columna) */
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;        /* la imagen se recorta sin deformarse */
+    display: block;
+  }
+
+  .card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;                  /* ocupa el espacio sobrante: cards parejas */
+  }
+
+  .categoria {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: 1px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .precio {
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+    margin-top: auto;         /* empuja el precio al fondo de la card */
+  }
+
+  .card button {
+    background: #FFD34D;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .card button:hover {
+    background: rgb(172, 162, 162);
+    }
+
+ 
+/* ============================================================
+   SECCIÓN DE SERVICIOS
+   Combina texto e imagen.
+   ============================================================ */
+
+.seccion-combinada {
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto; 
+}
+
+.bloque-combinado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin: 0 auto 60px;
+  max-width: 1000px;
+}
+
+.bloque-texto,
+.bloque-imagen {
+  width: 45%;
+}
+
+.bloque-texto h2 {
+  margin-bottom: 20px;
+}
+
+.bloque-texto p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.bloque-imagen img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/* ============================================================
+   RESEÑAS
+   Cuatro columnas con Grid.
+   ============================================================ */
+
+.resenas {
+  padding: 60px 10%;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.resenas h2 {
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+.contenedor-resenas {
+  display: grid;
+
+  /* 4 columnas */
+  grid-template-columns: repeat(4, 1fr);
+
+  /* Espacio entre las reseñas */
+  gap: 25px;
+}
+
+.resena {
+  background-color: white;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.resena h3 {
+  margin-bottom: 10px;
+}
+
+.estrellas {
+  color: #e0a800;
+  font-size: 20px;
+}
+
+.resena p:last-child {
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .contenedor-resenas {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .contenedor-resenas {
+      grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   SECCIÓN CONTACTO Y UBICACIÓN
+   ============================================================ */
+   
+  .contacto {
+    padding: 60px 20px;
+  }
+  
+  .contacto-contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  
+    align-items: stretch;
+  }
+  
+  /* FORMULARIO */
+  
+  .formulario-contenedor {
+    width: 100%;
+  }
+  
+  .formulario {
+    background: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    padding: 30px;
+    height: 90%;
+  }
+  
+  .campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .campo label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .campo input,
+  .campo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+  }
+  
+  .formulario button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #FFD34D;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .formulario button:hover {
+    background: rgb(172, 162, 162);
+  }
+  
+  
+  /* MAPA */
+  
+  .mapa {
+    width: 100%;
+    min-height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #E0E0E0;
+  }
+  
+  .mapa iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: 0;
+    display: block;
+  }
+
+
+  /* ============================================================
+     FOOTER
+     Otra vez flex: tres columnas que se acomodan solas.
+     ============================================================ */
+
+  footer {
+    background: #222;
+    color:white;
+    padding: 40px 0 20px;
+  }
+
+  .footer-columnas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .columna {
+    flex: 1 1 250px;          /* crece, se achica, base 250px */
+  }
+
+  .columna h4 {
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .columna ul {
+    list-style: none;
+  }
+
+  .columna a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .columna a:hover {
+    color: #FFD34D;
+  }
+
+  /* Los iconos de redes, en fila y separados */
+  .redes {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  /* Cada icono va dentro de un circulo.
+     Usamos flex para centrarlo adentro. */
+  .redes a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .redes a:hover {
+    background: black;
+    color: white;
+  }
+
+  .copyright {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 14px;
+  }
+
+  
+  /* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+   @media (max-width: 768px) {
+
+    .barra-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+  
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+  
+    .menu a {
+        display: block;
+        padding: 8px;
+    }
+  }
+  
+/* Tablet */
+
+@media (max-width: 900px) {
+
+    .contacto {
+        padding: 50px 4%;
+    }
+
+    .contacto-contenedor {
+        gap: 20px;
+    }
+
+    .formulario {
+        padding: 25px;
+    }
+
+}
+
+
+/* Celular */
+
+@media (max-width: 768px) {
+
+    .contacto {
+        padding: 40px 20px;
+    }
+
+    .contacto-contenedor {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .formulario-contenedor h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .formulario {
+        padding: 20px;
+    }
+
+    .mapa {
+        min-height: 400px;
+    }
+
+    .mapa iframe {
+        min-height: 400px;
+    }
+
+}
+
+
+/* Celular pequeño */
+
+@media (max-width: 480px) {
+
+    .contacto {
+        padding: 30px 15px;
+    }
+
+    .formulario {
+        padding: 18px;
+    }
+
+    .formulario-contenedor h2 {
+        font-size: 24px;
+    }
+
+    .campo input,
+    .campo textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .formulario button {
+        font-size: 16px;
+    }
+
+    .mapa {
+        min-height: 350px;
+    }
+
+    .mapa iframe {
+        min-height: 350px;
+    }
+
+}
